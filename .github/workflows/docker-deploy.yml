@@ -22,6 +22,15 @@ jobs:
           script: |
             cd terraform-aws-devops-project
             git pull
-            cd docker
-            docker build -t devops-web .
-            
+
+            docker build -t devops-web:latest ./docker
+
+            docker save devops-web:latest -o devops-web.tar
+
+            sudo k3s ctr images import devops-web.tar
+
+            kubectl apply -f kubernetes/
+
+            kubectl rollout restart deployment devops-web
+
+            kubectl get pods
