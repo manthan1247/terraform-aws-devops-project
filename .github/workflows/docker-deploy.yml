@@ -24,6 +24,4 @@ jobs:
             git pull
             cd docker
             docker build -t devops-web .
-            docker stop web-server || true
-            docker rm web-server || true
-            docker run -d -p 80:80 --name web-server devops-web
+            
