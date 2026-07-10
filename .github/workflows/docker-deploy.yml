@@ -30,8 +30,8 @@ jobs:
 
             sudo k3s ctr images import devops-web.tar
 
-            sudo kubectl apply -f kubernetes/
+            sudo k3s kubectl apply -f kubernetes/
 
-            sudo kubectl rollout restart deployment devops-web
+            sudo k3s kubectl rollout restart deployment devops-web
 
-            sudo kubectl get pods
+            sudo k3s kubectl get pods
