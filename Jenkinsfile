@@ -1,8 +1,11 @@
 pipeline {
     agent any
 
-    stages {
+    environment {
+        KUBECONFIG = "/var/lib/jenkins/.kube/config"
+    }
 
+    stages {
         stage('Git Checkout') {
             steps {
                 checkout scm
@@ -17,10 +20,9 @@ pipeline {
 
         stage('Deploy Kubernetes') {
             steps {
-                sh 'sudo kubectl apply -f kubernetes/deployment.yaml'
-                sh 'sudo kubectl apply -f kubernetes/service.yaml'
+                sh 'kubectl apply -f kubernetes/deployment.yaml'
+                sh 'kubectl apply -f kubernetes/service.yaml'
             }
         }
-
     }
 }
