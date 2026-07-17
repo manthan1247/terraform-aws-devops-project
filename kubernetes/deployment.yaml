@@ -2,21 +2,30 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: devops-web
+
 spec:
   replicas: 2
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+
   selector:
     matchLabels:
       app: devops-web
+
   template:
     metadata:
       labels:
         app: devops-web
+
     spec:
       containers:
       - name: devops-web
-        image: devops-web:latest
-        imagePullPolicy: Never
-
+        image: manthan8426/devops-web:v1
+        imagePullPolicy: Always
 
         ports:
         - containerPort: 80
