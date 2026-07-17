@@ -1,82 +1,149 @@
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-# 🚀 End-to-End DevOps Project
+# 🚀 Terraform AWS DevOps CI/CD Project
 
 ## 📌 Project Overview
 
-This project demonstrates a complete DevOps workflow using Terraform, AWS EC2, Docker, Kubernetes (K3s), and GitHub Actions CI/CD.
+This project demonstrates an end-to-end DevOps implementation where a web application is deployed on AWS using Infrastructure as Code, Docker, Kubernetes, and Jenkins CI/CD automation.
 
-## 🛠 Technologies Used
-
-- Linux
-- Git & GitHub
-- Docker
-- Terraform
-- AWS EC2
-- Kubernetes (K3s)
-- GitHub Actions
+The project covers complete automation from infrastructure provisioning to application deployment with Kubernetes rolling updates.
 
 ---
 
-## 🚀 Project Architecture
-
+# 🏗️ Architecture
 Developer
+|
 ↓
 GitHub Repository
+|
 ↓
-GitHub Actions
+Jenkins CI/CD Pipeline
+|
 ↓
-SSH
+Docker Image Build
+|
 ↓
-AWS EC2
-↓
-Docker Build
+Docker Hub Registry
+|
 ↓
 Kubernetes Deployment
+|
 ↓
-Application
+Application Running on AWS EC2
+
 
 ---
 
-## 📂 Project Structure
+# 🛠️ Technologies Used
 
-terraform-aws-devops-project/
-├── docker/
-├── kubernetes/
-├── terraform/
-├── .github/workflows/
-└── README.md
+## Cloud Infrastructure
+- AWS EC2
+- Terraform
+- VPC
+- Subnet
+- Internet Gateway
+- Security Groups
 
----
+## Containerization
+- Docker
+- Docker Hub
+- Nginx
 
-## ⚙ Deployment Commands
+## Container Orchestration
+- Kubernetes
+- K3s
 
-```bash
-terraform init
-terraform apply
-docker build -t devops-web:latest ./docker
-kubectl apply -f kubernetes/
-kubectl get pods
-```
+## CI/CD
+- Jenkins Pipeline
+- GitHub Integration
 
----
-
-## ✅ Features
-
-- Infrastructure Provisioning using Terraform
-- Dockerized Web Application
-- Kubernetes Deployment
-- GitHub Actions CI/CD
-- Automatic Deployment to AWS EC2
-- NodePort Service
+## Operating System
+- Ubuntu Linux
 
 ---
 
-## 👨‍💻 Author
+# 🔄 CI/CD Pipeline Implementation
 
-Manthan Fullbhati
-Test Mon Jul 13 09:34:32 UTC 2026
-test
+Jenkins is configured to automate the complete application delivery process.
+
+Pipeline workflow:
+
+- Code management using GitHub
+- Automated Docker image creation
+- Docker image publishing to Docker Hub
+- Kubernetes deployment update
+- Rolling update strategy for application deployment
+
+---
+
+# ☸️ Kubernetes Deployment
+
+The application is deployed using Kubernetes Deployment and Service.
+
+Implemented features:
+
+- Multiple replicas for high availability
+- Rolling update deployment strategy
+- Deployment version history
+- Rollback support
+- Container-based application management
+
+---
+
+# 🐳 Docker Application
+
+The web application is containerized using Docker with Nginx as the web server.
+
+Docker images are stored and managed using Docker Hub registry.
+
+---
+
+# 📂 Project Structure
+
+terraform-aws-devops-project
+
+├── Terraform Files
+│
+├── docker
+│ ├── Dockerfile
+│ └── index.html
+│
+├── kubernetes
+│ ├── deployment.yaml
+│ └── service.yaml
+│
+├── Jenkinsfile
+│
+└── README.md 
+
+
+---
+
+# ✅ Project Highlights
+
+✔ AWS infrastructure created using Terraform  
+✔ Docker containerization implemented  
+✔ Kubernetes deployment configured  
+✔ Jenkins CI/CD automation implemented  
+✔ Docker Hub integration completed  
+✔ Kubernetes rolling deployment enabled  
+✔ Infrastructure as Code approach followed  
+
+---
+
+# 👨‍💻 Developer
+
+**Manthan Fullbhati**
+
+DevOps Engineering (Training in Progress)
+
+GitHub:
+https://github.com/manthan1247
+
+---
+
+# 🚀 Future Enhancements
+
+- Add Prometheus and Grafana monitoring
+- Add centralized logging
+- Implement HTTPS with SSL certificates
+- Add automated testing in Jenkins pipeline
+- Improve Kubernetes security configuration
