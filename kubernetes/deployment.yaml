@@ -1,31 +1,58 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   name: devops-web
 
 spec:
   replicas: 2
 
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 0
-      maxSurge: 1
-
   selector:
     matchLabels:
       app: devops-web
 
   template:
+
     metadata:
       labels:
         app: devops-web
 
     spec:
+
       containers:
       - name: devops-web
-        image: manthan8426/devops-web:v1
+
+        image: manthan8426/devops-web:v2
+
         imagePullPolicy: Always
 
         ports:
         - containerPort: 80
+
+
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+
+
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+
+          initialDelaySeconds: 10
+          periodSeconds: 10
+
+
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+
+          initialDelaySeconds: 5
+          periodSeconds: 5
