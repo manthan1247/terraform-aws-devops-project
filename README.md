@@ -1,149 +1,208 @@
 # 🚀 Terraform AWS DevOps CI/CD Project
 
-## 📌 Project Overview
+## 🌐 Live Demo
 
-This project demonstrates an end-to-end DevOps implementation where a web application is deployed on AWS using Infrastructure as Code, Docker, Kubernetes, and Jenkins CI/CD automation.
+**Website:** https://goldymanthan.duckdns.org
 
-The project covers complete automation from infrastructure provisioning to application deployment with Kubernetes rolling updates.
+---
+
+# 📌 Project Overview
+
+This project demonstrates a complete Production-Ready DevOps pipeline built on AWS.
+
+The infrastructure is provisioned using Terraform, the application is containerized with Docker, deployed on Kubernetes (K3s), and automated using Jenkins CI/CD.
+
+The application is exposed through Traefik Ingress with a custom DuckDNS domain and secured using Let's Encrypt SSL certificates.
 
 ---
 
 # 🏗️ Architecture
-Developer
-|
-↓
-GitHub Repository
-|
-↓
-Jenkins CI/CD Pipeline
-|
-↓
-Docker Image Build
-|
-↓
-Docker Hub Registry
-|
-↓
-Kubernetes Deployment
-|
-↓
-Application Running on AWS EC2
 
+```
+Developer
+     │
+     ▼
+ GitHub Repository
+     │
+     ▼
+ Jenkins Pipeline
+     │
+     ▼
+ Docker Build
+     │
+     ▼
+ Docker Hub
+     │
+     ▼
+ Kubernetes (K3s)
+     │
+     ▼
+ Traefik Ingress
+     │
+     ▼
+ Let's Encrypt SSL
+     │
+     ▼
+ DuckDNS Domain
+     │
+     ▼
+ Live Website
+```
 
 ---
 
-# 🛠️ Technologies Used
+# ☁️ Infrastructure
 
-## Cloud Infrastructure
 - AWS EC2
 - Terraform
 - VPC
-- Subnet
+- Public Subnet
 - Internet Gateway
+- Route Table
 - Security Groups
 
-## Containerization
+---
+
+# 🐳 Containerization
+
 - Docker
 - Docker Hub
 - Nginx
-
-## Container Orchestration
-- Kubernetes
-- K3s
-
-## CI/CD
-- Jenkins Pipeline
-- GitHub Integration
-
-## Operating System
-- Ubuntu Linux
+- Docker Image Versioning
 
 ---
 
-# 🔄 CI/CD Pipeline Implementation
+# ☸️ Kubernetes
 
-Jenkins is configured to automate the complete application delivery process.
-
-Pipeline workflow:
-
-- Code management using GitHub
-- Automated Docker image creation
-- Docker image publishing to Docker Hub
-- Kubernetes deployment update
-- Rolling update strategy for application deployment
-
----
-
-# ☸️ Kubernetes Deployment
-
-The application is deployed using Kubernetes Deployment and Service.
-
-Implemented features:
-
-- Multiple replicas for high availability
-- Rolling update deployment strategy
-- Deployment version history
-- Rollback support
-- Container-based application management
+- K3s Cluster
+- Deployment
+- Service (NodePort)
+- Ingress
+- Traefik Ingress Controller
+- Rolling Updates
+- Multiple Replicas
+- Zero Downtime Deployment
 
 ---
 
-# 🐳 Docker Application
+# 🔐 HTTPS & Domain
 
-The web application is containerized using Docker with Nginx as the web server.
+- DuckDNS Custom Domain
+- Traefik Ingress
+- Let's Encrypt SSL
+- Automatic HTTPS
+- Automatic Certificate Renewal
 
-Docker images are stored and managed using Docker Hub registry.
+---
+
+# 🔄 CI/CD Pipeline
+
+Jenkins Pipeline automates:
+
+- GitHub Source Code Pull
+- Docker Image Build
+- Docker Hub Push
+- Kubernetes Deployment
+- Rolling Update
+- Application Deployment
 
 ---
 
 # 📂 Project Structure
 
+```
 terraform-aws-devops-project
-
-├── Terraform Files
 │
-├── docker
-│ ├── Dockerfile
-│ └── index.html
+├── terraform/
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   ├── security-group.tf
+│   ├── subnet.tf
+│   ├── vpc.tf
+│   └── userdata.sh
 │
-├── kubernetes
-│ ├── deployment.yaml
-│ └── service.yaml
+├── docker/
+│   ├── Dockerfile
+│   └── index.html
+│
+├── kubernetes/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── ingress.yaml
 │
 ├── Jenkinsfile
 │
-└── README.md 
-
+└── README.md
+```
 
 ---
 
-# ✅ Project Highlights
+# 🚀 Features
 
-✔ AWS infrastructure created using Terraform  
-✔ Docker containerization implemented  
-✔ Kubernetes deployment configured  
-✔ Jenkins CI/CD automation implemented  
-✔ Docker Hub integration completed  
-✔ Kubernetes rolling deployment enabled  
-✔ Infrastructure as Code approach followed  
+- Infrastructure as Code using Terraform
+- AWS EC2 Provisioning
+- Docker Containerization
+- Docker Hub Integration
+- Kubernetes Deployment
+- Kubernetes Service
+- Traefik Ingress
+- DuckDNS Domain
+- HTTPS using Let's Encrypt
+- Jenkins CI/CD Pipeline
+- Rolling Updates
+- Zero Downtime Deployment
+- Production Ready Architecture
+
+---
+
+# 🛠️ Technologies Used
+
+- AWS EC2
+- Terraform
+- Ubuntu Linux
+- Docker
+- Docker Hub
+- Kubernetes (K3s)
+- Traefik
+- Jenkins
+- Git
+- GitHub
+- DuckDNS
+- Let's Encrypt SSL
+- Nginx
+
+---
+
+# 📸 Live Application
+
+🌐 https://goldymanthan.duckdns.org
 
 ---
 
 # 👨‍💻 Developer
 
-**Manthan Fullbhati**
+## Manthan Fullbhati
 
-DevOps Engineering (Training in Progress)
+DevOps Engineer (Training)
 
 GitHub:
 https://github.com/manthan1247
 
+LinkedIn:
+https://www.linkedin.com/in/manthan-fullbhati-574a06376
+
 ---
 
-# 🚀 Future Enhancements
+# 🎯 Future Enhancements
 
-- Add Prometheus and Grafana monitoring
-- Add centralized logging
-- Implement HTTPS with SSL certificates
-- Add automated testing in Jenkins pipeline
-- Improve Kubernetes security configuration
+- Prometheus Monitoring
+- Grafana Dashboard
+- Loki Logging
+- Helm Charts
+- ArgoCD GitOps
+- Multi Environment Deployment
+- Kubernetes Secrets Management
+- AWS Load Balancer
+- Auto Scaling
+- GitHub Actions
